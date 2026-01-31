@@ -93,7 +93,15 @@ vim.g.clipboard = {
 	},
 	cache_enabled = 1,
 }
+-- create folds automatically
 
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldcolumn = "0" -- Set to "1" if you want a little column on the left showing folds
+vim.opt.foldtext = "" -- Optional: makes the fold text cleaner (showing just the code)
+vim.opt.foldlevel = 99 -- IMPORTANT: Opens all folds by default so files don't open shut
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
