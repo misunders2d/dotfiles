@@ -672,6 +672,9 @@ require("lazy").setup({
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
+				"isort",
+				"black",
+				"ruff",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -1016,15 +1019,15 @@ require("lazy").setup({
 		opts = {
 			strategies = {
 				chat = {
-					adapter = "google_gemini",
+					adapter = "gemini_cli",
 				},
 				inline = {
-					adapter = "google_gemini",
+					adapter = "gemini_cli",
 				},
 			},
 			adapters = {
-				google_gemini = function()
-					return require("codecompanion.adapters").extend("google_gemini", {
+				gemini_cli = function()
+					return require("codecompanion.adapters").extend("gemini", {
 						schema = {
 							model = {
 								default = "gemini-3-flash-preview",
