@@ -142,6 +142,12 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- Navigate buffers (tabs)
+vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
+vim.keymap.set("n", "<S-l>", ":BufferLineCycleNext<CR>", { desc = "Next Buffer" })
+
+-- Close current buffer (tab)
+vim.keymap.set("n", "<leader>x", ":bdelete<CR>", { desc = "Close Buffer" })
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
@@ -728,8 +734,9 @@ require("lazy").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform can also run multiple formatters sequentially
-				python = { "isort", "black", "ruff" },
-				--
+				-- python = { "isort", "black", "ruff" },
+				python = { "isort", "black" },
+
 				-- You can use 'stop_after_first' to run the first available formatter from the list
 				-- javascript = { "prettierd", "prettier", stop_after_first = true },
 			},
@@ -996,11 +1003,54 @@ require("lazy").setup({
 		},
 		opts = {
 			filesystem = {
+				hijack_netrw_behavior = "disabled",
 				window = {
 					mappings = {
 						["\\"] = "close_window",
 					},
 				},
+			},
+		},
+	},
+
+	{
+		"akinsho/bufferline.nvim",
+		version = "*",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		opts = {
+			options = {
+				mode = "buffers", -- Show buffers, not just tabpages
+				diagnostics = "nvim_lsp", -- Show errors in the tab
+				separator_style = "slant", -- "slant" | "slope" | "thick" | "thin"
+				offsets = {
+					{
+						filetype = "neo-tree",
+						text = "File Explorer",
+						text_align = "center",
+						separator = true,
+					},
+				},
+			},
+		},
+	},
+
+	{
+		"mikavilpas/yazi.nvim",
+		event = "VeryLazy",
+		keys = {
+			-- Open Yazi (replaces your current file explorer key if you want)
+			{ "<leader>-", "<cmd>Yazi<cr>", desc = "Open Yazi" },
+			-- Optional: Resume the last yazi session
+			{ "<leader>gw", "<cmd>Yazi toggle<cr>", desc = "Resume Yazi" },
+		},
+		opts = {
+			-- 👇 This is the magic line.
+			-- It makes 'nvim .' open Yazi instead of Netrw/Neo-tree
+			open_for_directories = true,
+
+			-- Optional: functionality tweaks
+			keymaps = {
+				show_help = "<f1>",
 			},
 		},
 	},
