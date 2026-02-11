@@ -1092,6 +1092,52 @@ require("lazy").setup({
 			},
 		},
 	},
+
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^5", -- Recommended
+		lazy = false, -- This plugin is already lazy
+		config = function()
+			vim.g.rustaceanvim = {
+				-- Plugin configuration
+				tools = {},
+				-- LSP configuration
+				server = {
+					on_attach = function(client, bufnr)
+						-- simple keybind for "Run" or "Debug"
+						vim.keymap.set("n", "<leader>ca", function()
+							vim.cmd.RustLsp("codeAction")
+						end, { buffer = bufnr, desc = "Code Action" })
+						vim.keymap.set("n", "<leader>dr", function()
+							vim.cmd.RustLsp("debuggables")
+						end, { buffer = bufnr, desc = "Rust Debuggables" })
+					end,
+					default_settings = {
+						-- rust-analyzer language server configuration
+						["rust-analyzer"] = {
+							cargo = {
+								allFeatures = true,
+							},
+							checkOnSave = {
+								command = "clippy",
+							},
+						},
+					},
+				},
+				-- DAP configuration
+				dap = {},
+			}
+		end,
+	},
+
+	-- Essential: Helper for Cargo.toml
+	{
+		"saecki/crates.nvim",
+		event = { "BufRead Cargo.toml" },
+		config = function()
+			require("crates").setup()
+		end,
+	},
 	-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
 	--    This is the easiest way to modularize your config.
 	--
