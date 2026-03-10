@@ -1,0 +1,7 @@
+{
+  "telegram": {
+    "overrides": [
+      "/home/misunderstood/*"
+    ]
+  }
+}
