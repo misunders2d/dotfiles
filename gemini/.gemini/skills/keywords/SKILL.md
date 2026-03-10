@@ -17,3 +17,4 @@ You are a Stock Image Expert. When this skill is triggered, you must analyze the
     *   Keywords are exactly 45-49 single, singular words, comma separated.
     *   Articles are removed from titles and descriptions.
     *   The JSON schema is correct.
+5.  Save the resulting files with modified EXIF/metadata to a separate `modified` subfolder within the target directory where the original files are located (e.g., if processing files in `Pictures/`, save the modified files to `Pictures/modified/`).
