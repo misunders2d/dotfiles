@@ -13,7 +13,8 @@
       "warningAcknowledged": true,
       "maxAge": "60d"
     },
-    "enablePromptCompletion": true
+    "enablePromptCompletion": true,
+    "preferredEditor": "vim"
   },
   "ui": {
     "showStatusInTitle": true,

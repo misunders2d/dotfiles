@@ -12,7 +12,7 @@ The `file_name` should be the name of the file being processed.
 {
   "file_name": "example.jpg",
   "xp_title": "Natural linen fabric texture. Flaxen circular spiral textile background",
-  "xp_subject": "Natural linen fabric texture. Flaxen circular spiral textile background, top view. Rough twisted burlap",
+  "xp_subject": "Natural linen fabric texture. Flaxen circular spiral textile background, top view. Rough twisted burlap.",
   "xp_keywords": "linen, fabric, texture, spiral, background, textile, burlap, natural, swirl, flaxen, flax, rough, material, canvas, backdrop, surface, textured, twist, closeup, fiber, crumpled, vintage, wallpaper, weave, grunge, soft, gray, beige, sack, woven, wave, rustic, sackcloth, crease, rumpled, weaving, wrinkled, top view, cotton, tablecloth, old, abstract, design, structure, twisted, fold, fashion, twirl, circular"
 }
 ```
@@ -21,6 +21,7 @@ The `file_name` should be the name of the file being processed.
 - Short, factual descriptions of content.
 - Limit to 70 characters or fewer.
 - **DO NOT** use formal sentence structures. Phrases only.
+- **DO NOT** end the title with a period/dot.
 - **REMOVE ALL ARTICLES** ("a", "an", "the"). (Wrong: "a card", Right: "card").
 - **DO NOT** remove plural forms when required (e.g., use "boxes" if there are multiple boxes).
 - **DO NOT** write unnecessary words. (Wrong: "arranged on black background", Right: "on black background").
@@ -29,6 +30,7 @@ The `file_name` should be the name of the file being processed.
 
 ## Descriptions (`xp_subject`)
 - Limit to 200 characters or fewer.
+- **CRITICAL**: The description MUST end with a period/dot (`.`).
 - **Apply all rules from Titles**, including removing articles, avoiding unnecessary words and phrases, and keeping required plurals.
 - Write only essential information. The first 5–6 words are critical.
 
