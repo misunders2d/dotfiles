@@ -1,1 +1,5 @@
 # lazy-lock.json
+
+# Gemini CLI
+gemini/.gemini/extensions/*
+!gemini/.gemini/extensions/extension-enablement.json

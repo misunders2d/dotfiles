@@ -3,5 +3,10 @@
     "overrides": [
       "/home/misunderstood/*"
     ]
+  },
+  "bigquery-data-analytics": {
+    "overrides": [
+      "/home/misunderstood/*"
+    ]
   }
 }
