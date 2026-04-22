@@ -1,7 +1,0 @@
-description = "Extract main topic and description from images and save them to EXIF data."
-
-prompt = """
-Check the images in the following folder/files, extract the main topic and description, and save them to the image's exif information.
-
-Target: {{args}}
-"""
