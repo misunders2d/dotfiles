@@ -20,6 +20,7 @@ window#waybar {
     border-radius: 12px;
     padding: 0 4px;
     margin: 4px 0;
+    opacity: 0.7;
 }
 
 .modules-left {
@@ -203,5 +204,5 @@ tooltip label {
     color: #cdd6f4;
     padding: 4px;
     font-family: "Inter", "Roboto", "JetBrainsMono Nerd Font", sans-serif;
-    font-size: 12px;
+    font-size: 16px;
 }
