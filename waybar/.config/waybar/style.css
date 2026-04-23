@@ -163,11 +163,11 @@ window#waybar.empty .modules-left #window {
     padding: 0 12px;
 }
 
-#custom-battery.performance {
+#custom-battery.ac {
     color: #f9e2af;   /* yellow bolt */
 }
 
-#custom-battery.power-saver {
+#custom-battery.bat {
     color: #a6e3a1;   /* green leaf */
 }
 

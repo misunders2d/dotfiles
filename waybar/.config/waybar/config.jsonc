@@ -128,7 +128,7 @@
         "exec": "/home/misunderstood/.config/waybar/battery.sh",
         "return-type": "json",
         "interval": 10,
-        "on-click": "/home/misunderstood/.config/waybar/battery.sh cycle"
+        "on-click": "/home/misunderstood/.config/waybar/battery.sh toggle"
     },
 
     "custom/power": {
