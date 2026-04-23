@@ -1,0 +1,207 @@
+* {
+    font-family: "Inter", "Roboto", "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #cdd6f4;
+}
+
+/* the three floating pills ------------------------------------- */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: rgba(20, 22, 28, 0.88);
+    border-radius: 12px;
+    padding: 0 4px;
+    margin: 4px 0;
+}
+
+.modules-left {
+    margin-left: 6px;
+}
+
+.modules-right {
+    margin-right: 6px;
+}
+
+/* left --------------------------------------------------------- */
+#workspaces {
+    padding: 0 4px;
+}
+
+#workspaces button {
+    color: #6c7086;
+    padding: 0 10px;
+    margin: 3px 2px;
+    border-radius: 7px;
+    background: transparent;
+    transition: all 150ms ease;
+    font-weight: 600;
+}
+
+#workspaces button:hover {
+    color: #cdd6f4;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+#workspaces button.active {
+    color: #14161c;
+    background: linear-gradient(135deg, #33ccff, #00ff99);
+}
+
+#workspaces button.urgent {
+    color: #14161c;
+    background: #f38ba8;
+}
+
+#window {
+    padding: 0 12px 0 6px;
+    color: #a6adc8;
+    font-weight: 400;
+}
+
+/* hide the window pill entirely when nothing is focused */
+window#waybar.empty .modules-left #window {
+    padding: 0;
+}
+
+/* center ------------------------------------------------------- */
+#clock {
+    padding: 0 18px;
+    color: #cdd6f4;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* right -------------------------------------------------------- */
+#cpu,
+#memory,
+#temperature,
+#disk,
+#network,
+#pulseaudio,
+#pulseaudio.microphone,
+#bluetooth,
+#custom-swaync,
+#battery,
+#custom-power {
+    padding: 0 10px;
+    color: #cdd6f4;
+}
+
+/* subtle dividers inside the right pill */
+#cpu,
+#memory,
+#temperature,
+#disk,
+#network,
+#pulseaudio,
+#pulseaudio.microphone,
+#bluetooth,
+#custom-swaync,
+#battery {
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* state colors */
+#cpu.warning,
+#memory.warning,
+#disk.warning,
+#battery.warning {
+    color: #f9e2af;
+}
+
+#cpu.critical,
+#memory.critical,
+#disk.critical,
+#battery.critical,
+#temperature.critical {
+    color: #f38ba8;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: #a6e3a1;
+}
+
+#pulseaudio.muted,
+#pulseaudio.microphone.source-muted {
+    color: #6c7086;
+}
+
+#network.disconnected {
+    color: #6c7086;
+}
+
+#bluetooth.disabled {
+    color: #6c7086;
+}
+
+#custom-swaync.dnd-notification,
+#custom-swaync.dnd-none,
+#custom-swaync.dnd-inhibited-notification,
+#custom-swaync.dnd-inhibited-none {
+    color: #f9e2af;
+}
+
+#custom-idle {
+    padding: 0 14px;
+}
+
+#custom-idle.inhibited {
+    color: #f9e2af;
+}
+
+#custom-battery {
+    padding: 0 12px;
+}
+
+#custom-battery.performance {
+    color: #f9e2af;   /* yellow bolt */
+}
+
+#custom-battery.power-saver {
+    color: #a6e3a1;   /* green leaf */
+}
+
+#custom-battery.charging {
+    color: #a6e3a1;
+}
+
+#custom-battery.warning {
+    color: #f9e2af;
+}
+
+#custom-battery.critical {
+    color: #f38ba8;
+}
+
+#custom-power {
+    color: #f38ba8;
+    font-size: 15px;
+    padding-right: 14px;
+}
+
+#custom-power:hover {
+    color: #eba0ac;
+}
+
+/* tooltip ------------------------------------------------------ */
+tooltip {
+    background: rgba(20, 22, 28, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+    padding: 4px;
+    font-family: "Inter", "Roboto", "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 12px;
+}
