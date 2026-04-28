@@ -61,6 +61,27 @@ window#waybar {
     background: #f38ba8;
 }
 
+#taskbar {
+    padding: 0 4px;
+}
+
+#taskbar button {
+    padding: 0 6px;
+    margin: 3px 2px;
+    border-radius: 7px;
+    background: transparent;
+    transition: all 150ms ease;
+    min-width: 0;
+}
+
+#taskbar button:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+#taskbar button.active {
+    background: rgba(51, 204, 255, 0.18);
+}
+
 #window {
     padding: 0 12px 0 6px;
     color: #a6adc8;
@@ -163,11 +184,11 @@ window#waybar.empty .modules-left #window {
     padding: 0 12px;
 }
 
-#custom-battery.ac {
+#custom-battery.performance {
     color: #f9e2af;   /* yellow bolt */
 }
 
-#custom-battery.bat {
+#custom-battery.power-saver {
     color: #a6e3a1;   /* green leaf */
 }
 

@@ -7,7 +7,7 @@
     "margin-left": 2,
     "margin-right": 2,
 
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["hyprland/workspaces", "wlr/taskbar", "hyprland/window"],
     "modules-center": ["clock"],
     "modules-right": [
         "cpu", "memory", "temperature", "disk",
@@ -19,6 +19,17 @@
         "format": "{name}",
         "on-click": "activate",
         "sort-by-number": true
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 18,
+        "icon-theme": "Papirus-Dark",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "on-click-right": "minimize",
+        "all-outputs": false,
+        "ignore-list": []
     },
     "hyprland/window": {
         "format": "{title}",
@@ -128,7 +139,7 @@
         "exec": "/home/misunderstood/.config/waybar/battery.sh",
         "return-type": "json",
         "interval": 10,
-        "on-click": "/home/misunderstood/.config/waybar/battery.sh toggle"
+        "on-click": "/home/misunderstood/.config/waybar/battery.sh cycle"
     },
 
     "custom/power": {
