@@ -11,6 +11,7 @@ local parsers = {
 	"query",
 	"rust",
 	"toml",
+	"yaml",
 	"vim",
 	"vimdoc",
 }

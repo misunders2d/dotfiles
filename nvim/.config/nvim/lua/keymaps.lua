@@ -18,3 +18,6 @@ map("n", "]b", ":bnext<CR>", { desc = "Next buffer" })
 map("n", "[b", ":bprevious<CR>", { desc = "Prev buffer" })
 
 map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Diagnostics to loclist" })
+
+map("i", "<C-v>", "<C-r>+", { desc = "Paste clipboard inline" })
+map("c", "<C-v>", "<C-r>+", { desc = "Paste clipboard inline" })

@@ -15,7 +15,11 @@ require("mason-tool-installer").setup({
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
-			completion = { callSnippet = "Replace" },
+			completion = {
+				callSnippet = "Replace",
+				showWord = "Disable",
+				workspaceWord = false,
+			},
 		},
 	},
 })
@@ -61,10 +65,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			return
 		end
 
-		if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion) then
-			vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
-		end
-
+		-- Completion UI is handled by blink.cmp.
+		-- Do not also enable built-in LSP completion, or two menus can compete.
 		if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
 			vim.keymap.set("n", "<leader>th", function()
 				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
