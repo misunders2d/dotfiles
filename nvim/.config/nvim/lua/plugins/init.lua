@@ -11,9 +11,7 @@ vim.pack.add({
 	{ src = "https://github.com/mikavilpas/yazi.nvim" },
 	{ src = "https://github.com/akinsho/bufferline.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
-	{ src = "https://github.com/MunifTanjim/nui.nvim" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
-	{ src = "https://github.com/yetone/avante.nvim" },
 	{ src = "https://github.com/olimorris/codecompanion.nvim" },
 	{ src = "https://github.com/Vigemus/iron.nvim" },
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
@@ -30,7 +28,6 @@ require("plugins.lsp")
 require("plugins.conform")
 require("plugins.yazi")
 require("plugins.bufferline")
-require("plugins.avante")
 require("plugins.codecompanion")
 require("plugins.codex_inline")
 require("plugins.iron")
