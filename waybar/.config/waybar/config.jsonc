@@ -10,7 +10,7 @@
     "modules-left": ["hyprland/workspaces", "wlr/taskbar", "hyprland/window"],
     "modules-center": ["clock"],
     "modules-right": [
-        "cpu", "memory", "temperature", "disk",
+        "custom/keyboard-layer", "cpu", "memory", "temperature", "disk",
         "network", "pulseaudio", "pulseaudio#microphone",
         "bluetooth", "custom/swaync", "custom/idle", "custom/battery", "custom/power"
     ],
@@ -124,6 +124,14 @@
         "on-click": "swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
+    },
+
+    "custom/keyboard-layer": {
+        "tooltip": true,
+        "exec": "/home/misunderstood/.config/waybar/keyboard-layer.sh show",
+        "return-type": "json",
+        "interval": 30,
+        "signal": 8
     },
 
     "custom/idle": {
