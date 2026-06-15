@@ -12,7 +12,7 @@
 }
 {
     "label" : "logout",
-    "action" : "loginctl terminate-user $USER",
+    "action" : "/home/misunderstood/.config/wlogout/logout-session-aware.sh",
     "text" : "Logout",
     "keybind" : "e"
 }
