@@ -1,0 +1,21 @@
+# Elephant files provider.
+# Keep launcher file search out of rclone/FUSE mounts; FUSE lookups blocked suspend.
+
+search_dirs = ["/home/misunderstood"]
+
+# Elephant matches these as regexps.
+ignored_dirs = [
+  "^/home/misunderstood/gdrive(/|$)",
+]
+
+# Also make fd skip known expensive/non-local trees before traversal.
+fd_flags = [
+  "--ignore-vcs",
+  "--type", "file",
+  "--type", "directory",
+  "--exclude", "gdrive",
+  "--exclude", "node_modules",
+  "--exclude", ".cache",
+]
+
+watch = false
