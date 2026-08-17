@@ -3,10 +3,12 @@ require("mason-tool-installer").setup({
 	ensure_installed = {
 		"lua-language-server",
 		"pyright",
+		"typescript-language-server",
 		"rust-analyzer",
 		"bash-language-server",
 		"stylua",
 		"ruff",
+		"prettier",
 		"shfmt",
 		"shellcheck",
 	},
@@ -25,6 +27,7 @@ vim.lsp.config("lua_ls", {
 })
 
 vim.lsp.config("pyright", {})
+vim.lsp.config("ts_ls", {})
 
 vim.lsp.config("rust_analyzer", {
 	settings = {
@@ -37,7 +40,7 @@ vim.lsp.config("rust_analyzer", {
 
 vim.lsp.config("bashls", {})
 
-vim.lsp.enable({ "lua_ls", "pyright", "rust_analyzer", "bashls" })
+vim.lsp.enable({ "lua_ls", "pyright", "ts_ls", "rust_analyzer", "bashls" })
 
 vim.diagnostic.config({
 	severity_sort = true,

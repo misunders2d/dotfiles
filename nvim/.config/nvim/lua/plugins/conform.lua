@@ -9,7 +9,13 @@ require("conform").setup({
 	end,
 	formatters_by_ft = {
 		lua = { "stylua" },
+		javascript = { "prettier" },
+		javascriptreact = { "prettier" },
+		json = { "prettier" },
+		jsonc = { "prettier" },
 		python = { "ruff_organize_imports", "ruff_format" },
+		typescript = { "prettier" },
+		typescriptreact = { "prettier" },
 		rust = { lsp_format = "prefer" },
 		sh = { "shfmt" },
 		bash = { "shfmt" },
