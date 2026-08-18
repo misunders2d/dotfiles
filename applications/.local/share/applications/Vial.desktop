@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Vial
+Type=Application
+Exec=env QT_SCALE_FACTOR=1.5 QT_QPA_PLATFORMTHEME=qt6ct QT_AUTO_SCREEN_SCALE_FACTOR=1 QT_ENABLE_HIGHDPI_SCALING=1 DESKTOPINTEGRATION=false /usr/bin/Vial
+Terminal=false
+NoDisplay=false
+Categories=Utility;
+Version=1.0
+Icon=Vial
+X-AppImage-Version=.glibc2.3.4

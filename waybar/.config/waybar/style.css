@@ -102,7 +102,6 @@ window#waybar.empty .modules-left #window {
 }
 
 /* right -------------------------------------------------------- */
-#custom-keyboard-layer,
 #cpu,
 #memory,
 #temperature,
@@ -119,7 +118,6 @@ window#waybar.empty .modules-left #window {
 }
 
 /* subtle dividers inside the right pill */
-#custom-keyboard-layer,
 #cpu,
 #memory,
 #temperature,
@@ -161,28 +159,6 @@ window#waybar.empty .modules-left #window {
 
 #network.disconnected {
     color: #6c7086;
-}
-
-#custom-keyboard-layer {
-    min-width: 42px;
-    font-weight: 800;
-    letter-spacing: 0.4px;
-}
-
-#custom-keyboard-layer.base {
-    color: #a6adc8;
-}
-
-#custom-keyboard-layer.num {
-    color: #89b4fa;
-}
-
-#custom-keyboard-layer.sym {
-    color: #f9e2af;
-}
-
-#custom-keyboard-layer.unknown {
-    color: #f38ba8;
 }
 
 #bluetooth.disabled {
