@@ -29,12 +29,14 @@ local mainMod = "SUPER"
 -------------------
 
 hl.on("hyprland.start", function()
-  hl.exec_cmd([[sh -lc 'sleep 1; exec waybar -l info >> /home/misunderstood/.cache/waybar-autostart.log 2>&1']])
+  hl.exec_cmd("caelestia shell -d")
   hl.exec_cmd("elephant")
   hl.exec_cmd("walker --gapplication-service")
   hl.exec_cmd("hyprpolkitagent")
-  hl.exec_cmd("awww-daemon")
-  hl.exec_cmd("hypridle")
+  -- Caelestia provides native Wi-Fi/Bluetooth controls; remove XDG tray duplicates after autostart.
+  hl.exec_cmd([[sh -lc 'sleep 2; pkill -x nm-applet; pkill -f "^/usr/bin/python /usr/bin/blueman-applet$"']])
+  -- Caelestia owns wallpaper in this session.
+  -- Caelestia owns idle and lock behavior in this session.
 end)
 
 --------------------------------

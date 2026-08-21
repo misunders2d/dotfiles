@@ -1,0 +1,5 @@
+# UWSM-loaded Hyprland session environment.
+# Keep Qt app scaling/theme available to apps launched via systemd/UWSM.
+export QT_QPA_PLATFORMTHEME=qt6ct
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_ENABLE_HIGHDPI_SCALING=1

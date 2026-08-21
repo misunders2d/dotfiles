@@ -1,159 +1,170 @@
 {
-    "layer": "top",
-    "position": "top",
-    "height": 32,
-    "spacing": 0,
-    "margin-top": 1,
-    "margin-left": 2,
-    "margin-right": 2,
-
-    "modules-left": ["hyprland/workspaces", "wlr/taskbar", "hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": [
-        "custom/keyboard-layer", "cpu", "memory", "temperature", "disk",
-        "network", "pulseaudio", "pulseaudio#microphone",
-        "bluetooth", "custom/swaync", "custom/idle", "custom/battery", "custom/power"
-    ],
-
-    "hyprland/workspaces": {
-        "format": "{name}",
-        "on-click": "activate",
-        "sort-by-number": true
-    },
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "icon-size": 18,
-        "icon-theme": "Papirus-Dark",
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-middle": "close",
-        "on-click-right": "minimize",
-        "all-outputs": false,
-        "ignore-list": []
-    },
-    "hyprland/window": {
-        "format": "{title}",
-        "max-length": 60,
-        "separate-outputs": true
-    },
-
-    "clock": {
-        "format": "{:%H:%M  %a %d %b}",
-        "tooltip-format": "{:%A, %B %d %Y}\n\nLeft-click: open calendar",
-        "on-click": "gsimplecal"
-    },
-
-    "cpu": {
-        "interval": 2,
-        "format": "  {usage}%",
-        "tooltip-format": "CPU usage: {usage}%\nLoad avg: {load}\nAvg freq: {avg_frequency:.2f} GHz",
-        "states": { "warning": 70, "critical": 90 }
-    },
-    "memory": {
-        "interval": 2,
-        "format": "󰍛  {percentage}%",
-        "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G  ({percentage}%)\nAvailable: {avail:0.1f}G\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G",
-        "states": { "warning": 75, "critical": 90 }
-    },
-    "temperature": {
-        "interval": 5,
-        "critical-threshold": 85,
-        "format": "  {temperatureC}°",
-        "format-critical": "  {temperatureC}°",
-        "tooltip-format": "CPU temperature: {temperatureC}°C"
-    },
-    "disk": {
-        "interval": 30,
-        "format": "  {percentage_used}%",
-        "path": "/",
-        "tooltip-format": "Disk ({path}): {used} / {total}\nUsed: {percentage_used}%    Free: {free}",
-        "states": { "warning": 80, "critical": 92 }
-    },
-
-    "network": {
-        "interval": 5,
-        "format-wifi": "   {signalStrength}%",
-        "format-ethernet": "󰈀",
-        "format-disconnected": "󰖪",
-        "tooltip-format-wifi": "{essid}  ({signalStrength}%)\n{ifname}: {ipaddr}\n\n↑ {bandwidthUpBits}    ↓ {bandwidthDownBits}\n\nLeft-click: open network manager",
-        "tooltip-format-ethernet": "{ifname}: {ipaddr}\n\n↑ {bandwidthUpBits}    ↓ {bandwidthDownBits}\n\nLeft-click: open network manager",
-        "tooltip-format-disconnected": "Disconnected\n\nLeft-click: open network manager",
-        "on-click": "nm-connection-editor"
-    },
-
-    "pulseaudio": {
-        "format": "{icon}   {volume}%",
-        "format-muted": "",
-        "format-icons": {
-            "default": ["", "", ""],
-            "headphone": "",
-            "headset":   "",
-            "hdmi":      ""
-        },
-        "scroll-step": 5,
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "hyprpwcenter",
-        "tooltip-format": "Output: {desc}\nVolume: {volume}%\n\nLeft-click: mute    Right-click: audio settings\nScroll: adjust volume"
-    },
-    "pulseaudio#microphone": {
-        "format": "{format_source}",
-        "format-source": "  {volume}%",
-        "format-source-muted": "",
-        "tooltip-format": "Microphone volume: {volume}%\n\nLeft-click: mute    Right-click: audio settings\nScroll: adjust volume",
-        "scroll-step": 5,
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-        "on-click-right": "hyprpwcenter"
-    },
-
-    "bluetooth": {
-        "format": "",
-        "format-disabled": "",
-        "format-connected": "  {num_connections}",
-        "tooltip-format": "{controller_alias}  ({controller_address})\nStatus: {status}\n\nLeft-click: open bluetooth manager",
-        "tooltip-format-connected": "{controller_alias}  ({controller_address})\nConnected devices: {num_connections}\n\n{device_enumerate}\n\nLeft-click: open bluetooth manager",
-        "tooltip-format-enumerate-connected": "  {device_alias}  ({device_address})",
-        "on-click": "blueman-manager"
-    },
-
-    "custom/swaync": {
-        "tooltip": true,
-        "format": "  {}",
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true
-    },
-
-    "custom/keyboard-layer": {
-        "tooltip": true,
-        "exec": "/home/misunderstood/.config/waybar/keyboard-layer.sh show",
-        "return-type": "json",
-        "interval": 30,
-        "signal": 8
-    },
-
-    "custom/idle": {
-        "tooltip": true,
-        "exec": "/home/misunderstood/.config/waybar/idle-toggle.sh",
-        "return-type": "json",
-        "interval": 5,
-        "on-click": "/home/misunderstood/.config/waybar/idle-toggle.sh toggle"
-    },
-
-    "custom/battery": {
-        "tooltip": true,
-        "exec": "/home/misunderstood/.config/waybar/battery.sh",
-        "return-type": "json",
-        "interval": 10,
-        "on-click": "/home/misunderstood/.config/waybar/battery.sh cycle"
-    },
-
-    "custom/power": {
-        "format": "⏻",
-        "tooltip": true,
-        "tooltip-format": "Power menu\n\nLeft-click: shutdown / reboot / logout / lock",
-        "on-click": "wlogout"
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+  "spacing": 0,
+  "margin-top": 1,
+  "margin-left": 2,
+  "margin-right": 2,
+  "modules-left": [
+    "ext/workspaces",
+    "wlr/taskbar",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "temperature",
+    "disk",
+    "network",
+    "pulseaudio",
+    "pulseaudio#microphone",
+    "bluetooth",
+    "custom/swaync",
+    "custom/idle",
+    "custom/battery",
+    "custom/power"
+  ],
+  "ext/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "sort-by-name": false,
+    "sort-by-coordinates": true
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 18,
+    "icon-theme": "Papirus-Dark",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "on-click-right": "minimize",
+    "all-outputs": false,
+    "ignore-list": []
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 60,
+    "separate-outputs": true
+  },
+  "clock": {
+    "format": "{:%H:%M  %a %d %b}",
+    "tooltip-format": "{:%A, %B %d %Y}\n\nLeft-click: open calendar",
+    "on-click": "gsimplecal"
+  },
+  "cpu": {
+    "interval": 2,
+    "format": "\uf4bc  {usage}%",
+    "tooltip-format": "CPU usage: {usage}%\nLoad avg: {load}\nAvg freq: {avg_frequency:.2f} GHz",
+    "states": {
+      "warning": 70,
+      "critical": 90
     }
+  },
+  "memory": {
+    "interval": 2,
+    "format": "\udb80\udf5b  {percentage}%",
+    "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G  ({percentage}%)\nAvailable: {avail:0.1f}G\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G",
+    "states": {
+      "warning": 75,
+      "critical": 90
+    }
+  },
+  "temperature": {
+    "interval": 5,
+    "critical-threshold": 85,
+    "format": "\uf2c9  {temperatureC}\u00b0",
+    "format-critical": "\uf2c9  {temperatureC}\u00b0",
+    "tooltip-format": "CPU temperature: {temperatureC}\u00b0C"
+  },
+  "disk": {
+    "interval": 30,
+    "format": "\uf0a0  {percentage_used}%",
+    "path": "/",
+    "tooltip-format": "Disk ({path}): {used} / {total}\nUsed: {percentage_used}%    Free: {free}",
+    "states": {
+      "warning": 80,
+      "critical": 92
+    }
+  },
+  "network": {
+    "interval": 5,
+    "format-wifi": "\uf1eb   {signalStrength}%",
+    "format-ethernet": "\udb80\ude00",
+    "format-disconnected": "\udb81\uddaa",
+    "tooltip-format-wifi": "{essid}  ({signalStrength}%)\n{ifname}: {ipaddr}\n\n\u2191 {bandwidthUpBits}    \u2193 {bandwidthDownBits}\n\nLeft-click: open network manager",
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}\n\n\u2191 {bandwidthUpBits}    \u2193 {bandwidthDownBits}\n\nLeft-click: open network manager",
+    "tooltip-format-disconnected": "Disconnected\n\nLeft-click: open network manager",
+    "on-click": "nm-connection-editor"
+  },
+  "pulseaudio": {
+    "format": "{icon}   {volume}%",
+    "format-muted": "\uf466",
+    "format-icons": {
+      "default": [
+        "\uf026",
+        "\uf027",
+        "\uf028"
+      ],
+      "headphone": "\uf025",
+      "headset": "\uf025",
+      "hdmi": "\uf028"
+    },
+    "scroll-step": 5,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "hyprpwcenter",
+    "tooltip-format": "Output: {desc}\nVolume: {volume}%\n\nLeft-click: mute    Right-click: audio settings\nScroll: adjust volume"
+  },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "\uf130  {volume}%",
+    "format-source-muted": "\uf131",
+    "tooltip-format": "Microphone volume: {volume}%\n\nLeft-click: mute    Right-click: audio settings\nScroll: adjust volume",
+    "scroll-step": 5,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-right": "hyprpwcenter"
+  },
+  "bluetooth": {
+    "format": "\uf293",
+    "format-disabled": "\uf293",
+    "format-connected": "\uf293  {num_connections}",
+    "tooltip-format": "{controller_alias}  ({controller_address})\nStatus: {status}\n\nLeft-click: open bluetooth manager",
+    "tooltip-format-connected": "{controller_alias}  ({controller_address})\nConnected devices: {num_connections}\n\n{device_enumerate}\n\nLeft-click: open bluetooth manager",
+    "tooltip-format-enumerate-connected": "  {device_alias}  ({device_address})",
+    "on-click": "blueman-manager"
+  },
+  "custom/swaync": {
+    "tooltip": true,
+    "format": "\uf0f3  {}",
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/idle": {
+    "tooltip": true,
+    "exec": "/home/misunderstood/.config/waybar/idle-toggle.sh",
+    "return-type": "json",
+    "interval": 5,
+    "on-click": "/home/misunderstood/.config/waybar/idle-toggle.sh toggle"
+  },
+  "custom/battery": {
+    "tooltip": true,
+    "exec": "/home/misunderstood/.config/waybar/battery.sh",
+    "return-type": "json",
+    "interval": 10,
+    "on-click": "/home/misunderstood/.config/waybar/battery.sh cycle"
+  },
+  "custom/power": {
+    "format": "\u23fb",
+    "tooltip": true,
+    "tooltip-format": "Power menu\n\nLeft-click: shutdown / reboot / logout / lock",
+    "on-click": "wlogout"
+  },
+  "include": []
 }
