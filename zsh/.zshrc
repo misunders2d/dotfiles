@@ -23,7 +23,7 @@ promptinit
 zstyle ':completion:*' menu select
 
 
-# export GOOGLE_CLOUD_PROJECT=mellanni-agent
+export GOOGLE_CLOUD_PROJECT=mellanni-agent
 
 alias ll="ls -la"
 
@@ -34,7 +34,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export PATH="$HOME/.local/bin:$PATH"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export PATH="$HOME/.local/bin:$PATH"
 
-# Load local secrets (untracked, see ~/.zshrc.local)
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# Added by Antigravity CLI installer
+export PATH="/home/misunderstood/.local/bin:$PATH"
