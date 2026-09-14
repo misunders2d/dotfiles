@@ -1,4 +1,4 @@
-local codex_acp = vim.fn.expand("~/.cargo/bin/codex-acp")
+local codex_acp = vim.fn.expand("~/.local/bin/codex-acp")
 
 require("codecompanion").setup({
 	adapters = {
@@ -6,11 +6,15 @@ require("codecompanion").setup({
 			codex = function()
 				return require("codecompanion.adapters").extend("codex", {
 					commands = {
-						default = { "env", "CODEX_HOME=" .. vim.fn.expand("~/.config/codecompanion-codex"), codex_acp },
+						default = { codex_acp },
+					},
+					env = {
+						CODEX_HOME = vim.fn.expand("~/.config/codecompanion-codex"),
+						INITIAL_AGENT_MODE = "agent",
 					},
 					defaults = {
 						-- Use Codex/ChatGPT subscription auth, not OpenAI API keys.
-						auth_method = "chatgpt",
+						auth_method = "chat-gpt",
 						timeout = 60000,
 					},
 				})

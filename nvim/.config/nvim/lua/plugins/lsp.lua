@@ -68,6 +68,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			return
 		end
 
+		if client:supports_method(vim.lsp.protocol.Methods.textDocument_definition) then
+			vim.keymap.set("n", "gf", vim.lsp.buf.definition, {
+				buffer = event.buf,
+				desc = "Go to definition",
+			})
+		end
+
 		-- Completion UI is handled by blink.cmp.
 		-- Do not also enable built-in LSP completion, or two menus can compete.
 		if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
