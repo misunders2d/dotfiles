@@ -1,0 +1,7 @@
+#!/bin/bash
+set -euo pipefail
+
+export PATH="$HOME/.local/bin:$PATH"
+export GH_PROFILE=personal
+
+exec /usr/bin/stably-orca "$@"
