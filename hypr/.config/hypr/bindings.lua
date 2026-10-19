@@ -14,11 +14,10 @@
 
 -- Add a new binding.
 -- o.bind("SUPER + SHIFT + R", "SSH", "alacritty -e ssh your-server")
-o.bind("CTRL + Shift_L", "Switch keyboard layout", "hyprctl switchxkblayout all next")
+o.bind("CTRL + SPACE", "Switch keyboard layout", "hyprctl switchxkblayout all next")
 o.bind("SUPER + Q", "Screenshot", "omarchy-capture-screenshot")
 o.bind("SUPER + SHIFT + Q", "Screenshot (3s delay)", "sleep 3 && omarchy-capture-screenshot")
 o.bind("SUPER + Y", "Yazi", "omarchy-launch-tui yazi")
-o.bind("SUPER + I", "Orca (personal)", { launch = "/home/misunderstood/.local/bin/orca-personal" })
 
 -- Change an existing binding by unbinding it first, then binding the key again.
 -- This example changes SUPER+SPACE from the launcher to the Omarchy root menu.
